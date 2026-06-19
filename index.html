@@ -23,260 +23,74 @@
       --font: 'Satoshi', sans-serif;
       --display: 'Zodiak', serif;
     }
-
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme]) {
-        --bg: #1a1218;
-        --surface: #221620;
-        --border: #4a3348;
-        --text: #f5dde5;
-        --muted: #d4a8ba;
-        --faint: #8a6678;
-        --primary: #f27280;
-        --coral: #f9b294;
-        --warm: #f9b294;
-        --purple: #c16c86;
+        --bg: #1a1218; --surface: #221620; --border: #4a3348;
+        --text: #f5dde5; --muted: #d4a8ba; --faint: #8a6678;
+        --primary: #f27280; --coral: #f9b294; --warm: #f9b294; --purple: #c16c86;
       }
     }
-
     [data-theme="dark"] {
-      --bg: #1a1218;
-      --surface: #221620;
-      --border: #4a3348;
-      --text: #f5dde5;
-      --muted: #d4a8ba;
-      --faint: #8a6678;
-      --primary: #f27280;
-      --coral: #f9b294;
-      --warm: #f9b294;
-      --purple: #c16c86;
+      --bg: #1a1218; --surface: #221620; --border: #4a3348;
+      --text: #f5dde5; --muted: #d4a8ba; --faint: #8a6678;
+      --primary: #f27280; --coral: #f9b294; --warm: #f9b294; --purple: #c16c86;
     }
-
     html { scroll-behavior: smooth; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
+    body { font-family: var(--font); background: var(--bg); color: var(--text); font-size: 1rem; line-height: 1.6; }
     a { color: var(--primary); text-decoration: none; }
     a:hover { color: var(--coral); }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 1.5rem;
-      border-bottom: 2px solid var(--border);
-      background: var(--surface);
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    .logo {
-      font-family: var(--display);
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--primary);
-      letter-spacing: -0.01em;
-    }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 2px solid var(--border); background: var(--surface); flex-wrap: wrap; gap: 0.75rem; }
+    .logo { font-family: var(--display); font-size: 1.4rem; font-weight: 700; color: var(--primary); letter-spacing: -0.01em; }
     .logo span { color: var(--coral); }
     nav { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
-    nav a {
-      color: var(--muted);
-      font-size: 0.9rem;
-      padding: 0.4rem 0.7rem;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-    }
+    nav a { color: var(--muted); font-size: 0.9rem; padding: 0.4rem 0.7rem; border-radius: 6px; border: 1px solid var(--border); }
     nav a:hover { background: var(--border); color: var(--text); }
-    .theme-btn {
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 0.4rem 0.7rem;
-      cursor: pointer;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
+    .theme-btn { background: none; border: 1px solid var(--border); border-radius: 6px; padding: 0.4rem 0.7rem; cursor: pointer; font-size: 0.9rem; color: var(--muted); }
     hr { border: none; border-top: 1px solid var(--border); margin: 0; }
-
-    .hero {
-      padding: 3.5rem 1.5rem 2rem;
-      max-width: 780px;
-      margin: 0 auto;
-    }
-    .hero h1 {
-      font-family: var(--display);
-      font-size: clamp(2rem, 5vw, 3.6rem);
-      line-height: 1.1;
-      letter-spacing: -0.025em;
-      margin-bottom: 1rem;
-    }
+    .hero { padding: 3.5rem 1.5rem 2rem; max-width: 780px; margin: 0 auto; }
+    .hero h1 { font-family: var(--display); font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 1rem; }
     .hero h1 em { font-style: normal; color: var(--coral); }
     .hero p { color: var(--muted); max-width: 60ch; margin-bottom: 0.6rem; }
     .small-note { font-size: 0.78rem; color: var(--faint); margin-top: 0.3rem; }
     .btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; }
-    .btn {
-      padding: 0.65rem 1.1rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-    }
+    .btn { padding: 0.65rem 1.1rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
     .btn-main { background: var(--primary); color: #fff9f7; border: none; }
     .btn-main:hover { background: var(--coral); color: #fff; }
     .btn-ghost { background: none; border: 1px solid var(--border); color: var(--muted); }
-
-    section {
-      padding: 2.5rem 1.5rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    section h2 {
-      font-family: var(--display);
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.02em;
-    }
-    .section-sub {
-      color: var(--faint);
-      font-size: 0.78rem;
-      margin-bottom: 1.5rem;
-      margin-top: -0.5rem;
-    }
+    section { padding: 2.5rem 1.5rem; max-width: 900px; margin: 0 auto; }
+    section h2 { font-family: var(--display); font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+    .section-sub { color: var(--faint); font-size: 0.78rem; margin-bottom: 1.5rem; margin-top: -0.5rem; }
     section p { color: var(--muted); margin-bottom: 0.75rem; }
-
-    .mission-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--coral);
-      border-radius: 10px;
-      padding: 1.25rem 1.4rem;
-      margin-bottom: 1rem;
-    }
+    .mission-box { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--coral); border-radius: 10px; padding: 1.25rem 1.4rem; margin-bottom: 1rem; }
     .mission-box p { margin: 0; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.1rem 1.25rem;
-    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem 1.25rem; }
     .card h3 { font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--primary); }
     .card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
     .card p + p { margin-top: 0.5rem; }
-
-    .status-badge {
-      display: inline-block;
-      font-size: 0.7rem;
-      padding: 0.2rem 0.55rem;
-      border-radius: 99px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      margin-bottom: 0.5rem;
-    }
-    .s-active { background: rgba(249,178,148,.2); color: #c96b3a; }
-    .s-soon   { background: rgba(193,108,134,.14); color: var(--primary); }
-    .s-future { background: rgba(51,93,126,.12);   color: var(--purple); }
-
     .tech-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.75rem; }
-    .tech-tag {
-      padding: 0.35rem 0.8rem;
-      border-radius: 7px;
-      border: 1px solid var(--border);
-      font-size: 0.85rem;
-      background: var(--surface);
-    }
-
-    /* transport table */
+    .tech-tag { padding: 0.35rem 0.8rem; border-radius: 7px; border: 1px solid var(--border); font-size: 0.85rem; background: var(--surface); }
     .t-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
-    .t-table th {
-      text-align: left;
-      color: var(--faint);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 0 0.5rem 0.5rem;
-    }
-    .t-table td {
-      padding: 0.6rem 0.5rem;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-    }
+    .t-table th { text-align: left; color: var(--faint); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 0 0.5rem 0.5rem; }
+    .t-table td { padding: 0.6rem 0.5rem; border-top: 1px solid var(--border); color: var(--muted); }
     .t-table td:first-child { color: var(--text); font-weight: 500; }
-
-    .dot {
-      display: inline-block;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      margin-right: 5px;
-      vertical-align: middle;
-    }
-    .dot-done   { background: #4ade80; }
-    .dot-wip    { background: #e09955; }
-    .dot-plan   { background: #888; }
-
-    /* setup codeblocks */
-    pre {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--coral);
-      border-radius: 10px;
-      padding: 1.1rem 1.25rem;
-      overflow-x: auto;
-      font-family: 'Courier New', monospace;
-      font-size: 0.85rem;
-      color: var(--text);
-      margin: 0.75rem 0 1.25rem;
-      line-height: 1.7;
-    }
-    code {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 1px 6px;
-      font-size: 0.85rem;
-      font-family: 'Courier New', monospace;
-      color: var(--coral);
-    }
+    .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+    .dot-done { background: #4ade80; } .dot-wip { background: #e09955; } .dot-plan { background: #888; }
+    pre { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--coral); border-radius: 10px; padding: 1.1rem 1.25rem; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 0.85rem; color: var(--text); margin: 0.75rem 0 1.25rem; line-height: 1.7; }
+    code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 1px 6px; font-size: 0.85rem; font-family: 'Courier New', monospace; color: var(--coral); }
     pre code { background: none; border: none; padding: 0; color: inherit; }
-
     .ack-list { list-style: none; padding: 0; display: grid; gap: 0.6rem; margin-top: 0.75rem; }
     .ack-list li::before { content: "✦ "; color: var(--coral); }
     .ack-list li { color: var(--muted); font-size: 0.95rem; }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem 3rem;
-      color: var(--faint);
-      font-size: 0.8rem;
-      border-top: 1px solid var(--border);
-    }
+    footer { text-align: center; padding: 2rem 1rem 3rem; color: var(--faint); font-size: 0.8rem; border-top: 1px solid var(--border); }
     footer span { color: var(--coral); }
     footer a { color: var(--primary); }
     footer a:hover { color: var(--coral); }
-
-    @media (max-width: 500px) {
-      .hero h1 { font-size: 2.1rem; }
-      .grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 500px) { .hero h1 { font-size: 2.1rem; } .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-
 <header>
   <div class="logo">enclave <span>messenger</span></div>
   <nav>
@@ -290,11 +104,9 @@
     <button class="theme-btn" data-theme-toggle aria-label="toggle theme">◐</button>
   </nav>
 </header>
-
 <main>
-
   <div class="hero">
-    <h1>a p2p messenger that works<br/>even when the <em>internet</em> doesn't.</h1>
+    <h1>a p2p messenger that works<br/>even when the <em>internet</em> doesn’t.</h1>
     <p>and fallbacks to <em>whatever</em> you happen to have — LAN, bluetooth, LoRa radio, SMS.</p>
     <p>no accounts. no central servers. your identity is a keypair that lives on your device.</p>
     <p class="small-note">// part of <a href="https://projectenclave.dev">project enclave</a> · early development · gpl-3.0</p>
@@ -304,25 +116,15 @@
       <a class="btn btn-ghost" href="https://github.com/Project-Enclave/Enclave-Messenger" target="_blank">github →</a>
     </div>
   </div>
-
   <hr />
-
   <section id="what">
     <h2>what is this</h2>
     <p class="section-sub">// skip if you want to</p>
-    <div class="mission-box">
-      <p>enclave messenger is the first piece of <a href="https://github.com/Project-Enclave">project enclave</a> — started because i live in Manipur, India, where internet shutdowns are real. when they happen, whatsapp, upi, telegram — all of it dies. they all depend on central servers that suddenly can't be reached.</p>
-    </div>
-    <div class="mission-box">
-      <p>that's a stupid design. so i'm trying to build something different — a messenger that finds peers directly over whatever medium is available. internet, LAN, bluetooth, LoRa radio. whatever works.</p>
-    </div>
-    <div class="mission-box">
-      <p>it's not finished. it's a hobby project. but i genuinely care about this one.</p>
-    </div>
+    <div class="mission-box"><p>enclave messenger is the first piece of <a href="https://github.com/Project-Enclave">project enclave</a> — started because i live in Manipur, India, where internet shutdowns are real. when they happen, whatsapp, upi, telegram — all of it dies. they all depend on central servers that suddenly can’t be reached.</p></div>
+    <div class="mission-box"><p>that’s a stupid design. so i’m trying to build something different — a messenger that finds peers directly over whatever medium is available. internet, LAN, bluetooth, LoRa radio. whatever works.</p></div>
+    <div class="mission-box"><p>it’s not finished. it’s a hobby project. but i genuinely care about this one.</p></div>
   </section>
-
   <hr />
-
   <section id="how">
     <h2>how it works (roughly)</h2>
     <p class="section-sub">// the architecture in a tree</p>
@@ -345,39 +147,17 @@ ui
   └── python bridge → web ui</pre>
     <p>no accounts. no servers. user id is derived from your public key. nobody can take it from you.</p>
   </section>
-
   <hr />
-
   <section id="status">
     <h2>current status</h2>
     <p class="section-sub">// early. like, really early.</p>
     <div class="grid">
-      <div class="card">
-        <h3>done</h3>
-        <p><span class="dot dot-done"></span>identity system</p>
-        <p><span class="dot dot-done"></span>LAN discovery</p>
-        <p><span class="dot dot-done"></span>message format + delivery</p>
-        <p><span class="dot dot-done"></span>bluetooth transport</p>
-        <p><span class="dot dot-done"></span>plugin system</p>
-      </div>
-      <div class="card">
-        <h3>in progress</h3>
-        <p><span class="dot dot-wip"></span>DHT node</p>
-        <p><span class="dot dot-wip"></span>double ratchet sessions</p>
-        <p><span class="dot dot-wip"></span>flutter ui</p>
-        <p><span class="dot dot-wip"></span>LoRa transport</p>
-      </div>
-      <div class="card">
-        <h3>planned</h3>
-        <p><span class="dot dot-plan"></span>SMS transport</p>
-        <p><span class="dot dot-plan"></span>mobile app</p>
-        <p><span class="dot dot-plan"></span>proper docs</p>
-      </div>
+      <div class="card"><h3>done</h3><p><span class="dot dot-done"></span>identity system</p><p><span class="dot dot-done"></span>LAN discovery</p><p><span class="dot dot-done"></span>message format + delivery</p><p><span class="dot dot-done"></span>bluetooth transport</p><p><span class="dot dot-done"></span>plugin system</p></div>
+      <div class="card"><h3>in progress</h3><p><span class="dot dot-wip"></span>DHT node</p><p><span class="dot dot-wip"></span>double ratchet sessions</p><p><span class="dot dot-wip"></span>flutter ui</p><p><span class="dot dot-wip"></span>LoRa transport</p></div>
+      <div class="card"><h3>planned</h3><p><span class="dot dot-plan"></span>SMS transport</p><p><span class="dot dot-plan"></span>mobile app</p><p><span class="dot dot-plan"></span>proper docs</p></div>
     </div>
   </section>
-
   <hr />
-
   <section id="transports">
     <h2>transports</h2>
     <p class="section-sub">// how it finds peers</p>
@@ -390,33 +170,20 @@ ui
       <tr><td>lora</td><td>arduino / esp32, long range low bandwidth</td><td><span class="dot dot-wip"></span>planned</td></tr>
     </table>
   </section>
-
   <hr />
-
   <section id="crypto">
     <h2>crypto</h2>
     <p class="section-sub">// how it stays private</p>
     <div class="grid">
-      <div class="card">
-        <h3>ed25519</h3>
-        <p>your identity keypair. used for signing. who you are on the network.</p>
-      </div>
-      <div class="card">
-        <h3>x25519 prekeys</h3>
-        <p>used to establish sessions. lets two devices agree on a shared secret without ever sending it.</p>
-      </div>
-      <div class="card">
-        <h3>noise + double ratchet</h3>
-        <p>end-to-end encryption per conversation. forward secrecy. inspired by signal's protocol.</p>
-      </div>
+      <div class="card"><h3>ed25519</h3><p>your identity keypair. used for signing. who you are on the network.</p></div>
+      <div class="card"><h3>x25519 prekeys</h3><p>used to establish sessions. lets two devices agree on a shared secret without ever sending it.</p></div>
+      <div class="card"><h3>noise + double ratchet</h3><p>end-to-end encryption per conversation. forward secrecy. inspired by signal’s protocol.</p></div>
     </div>
   </section>
-
   <hr />
-
   <section id="stack">
     <h2>tech stack</h2>
-    <p class="section-sub">// it's a mess but it's my mess</p>
+    <p class="section-sub">// it’s a mess but it’s my mess</p>
     <div class="tech-row">
       <span class="tech-tag">python — backend / core</span>
       <span class="tech-tag">python — cli / tui</span>
@@ -425,21 +192,19 @@ ui
       <span class="tech-tag">c++ — arduino / esp32</span>
     </div>
   </section>
-
   <hr />
-
   <section id="setup">
     <h2>running it</h2>
     <p class="section-sub">// nothing to run yet. check back later.</p>
-
-    <p>linux / macOS</p>
+    <p>one-liner (linux / macOS)</p>
+    <pre>bash &lt;(curl -sL https://raw.githubusercontent.com/Project-Enclave/setup/main/messenger.sh)</pre>
+    <p>or manually</p>
     <pre>git clone https://github.com/Project-Enclave/Enclave-Messenger
 cd Enclave-Messenger
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python web.py</pre>
-
     <p>windows</p>
     <pre>git clone https://github.com/Project-Enclave/Enclave-Messenger
 cd Enclave-Messenger
@@ -447,12 +212,9 @@ py -3 -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 python web.py</pre>
-
-    <p class="small-note">// if you use <code>python</code> instead of <code>python3</code>, fine — just make sure it's the one that has pip.</p>
+    <p class="small-note">// install scripts live in <a href="https://github.com/Project-Enclave/setup" target="_blank">Project-Enclave/setup</a></p>
   </section>
-
   <hr />
-
   <section id="ack">
     <h2>acknowledgements</h2>
     <p class="section-sub">// people who actually helped</p>
@@ -464,16 +226,12 @@ python web.py</pre>
       <li><a href="https://silence.im/" target="_blank">silence</a> — for the original idea</li>
     </ul>
   </section>
-
   <hr />
-
 </main>
-
 <footer>
   part of <a href="https://projectenclave.dev">project enclave</a> &nbsp;·&nbsp; <span>distributed by intent</span><br/>
   also on <a href="https://stardance.hackclub.com" target="_blank">stardance</a> by <a href="https://hackclub.com" target="_blank">hackclub</a>
 </footer>
-
 <script>
   (function () {
     const root = document.documentElement;
@@ -486,6 +244,5 @@ python web.py</pre>
     });
   })();
 </script>
-
 </body>
 </html>
