@@ -9,19 +9,11 @@
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=zodiak@400,700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #fdf5f0;
-      --surface: #fef8f4;
-      --border: #f0cfc4;
-      --text: #2a1f2e;
-      --muted: #6b4f5e;
-      --faint: #c4a5b0;
-      --primary: #c16c86;
-      --coral: #f27280;
-      --warm: #f9b294;
-      --purple: #6d5c7d;
-      --blue: #335d7e;
-      --font: 'Satoshi', sans-serif;
-      --display: 'Zodiak', serif;
+      --bg: #fdf5f0; --surface: #fef8f4; --border: #f0cfc4;
+      --text: #2a1f2e; --muted: #6b4f5e; --faint: #c4a5b0;
+      --primary: #c16c86; --coral: #f27280; --warm: #f9b294;
+      --purple: #6d5c7d; --blue: #335d7e;
+      --font: 'Satoshi', sans-serif; --display: 'Zodiak', serif;
     }
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme]) {
@@ -77,11 +69,31 @@
     .t-table td:first-child { color: var(--text); font-weight: 500; }
     .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
     .dot-done { background: #4ade80; } .dot-wip { background: #e09955; } .dot-plan { background: #888; }
-    pre { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--coral); border-radius: 10px; padding: 1.1rem 1.25rem; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 0.85rem; color: var(--text); margin: 0.75rem 0 1.25rem; line-height: 1.7; }
+
+    /* code blocks */
+    .code-wrap { position: relative; margin: 0.75rem 0 1.25rem; }
+    pre {
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 4px solid var(--coral); border-radius: 10px;
+      padding: 1.1rem 1.25rem; padding-right: 3.5rem;
+      overflow-x: auto; font-family: 'Courier New', monospace;
+      font-size: 0.85rem; color: var(--text); line-height: 1.7; margin: 0;
+    }
     code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 1px 6px; font-size: 0.85rem; font-family: 'Courier New', monospace; color: var(--coral); }
     pre code { background: none; border: none; padding: 0; color: inherit; }
+    .copy-btn {
+      position: absolute; top: 0.55rem; right: 0.55rem;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 6px; padding: 0.25rem 0.55rem;
+      font-size: 0.75rem; font-family: var(--font);
+      color: var(--faint); cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .copy-btn:hover { color: var(--primary); border-color: var(--primary); }
+    .copy-btn.copied { color: #4ade80; border-color: #4ade80; }
+
     .ack-list { list-style: none; padding: 0; display: grid; gap: 0.6rem; margin-top: 0.75rem; }
-    .ack-list li::before { content: "✦ "; color: var(--coral); }
+    .ack-list li::before { content: "\2726 "; color: var(--coral); }
     .ack-list li { color: var(--muted); font-size: 0.95rem; }
     footer { text-align: center; padding: 2rem 1rem 3rem; color: var(--faint); font-size: 0.8rem; border-top: 1px solid var(--border); }
     footer span { color: var(--coral); }
@@ -101,50 +113,50 @@
     <a href="#stack">stack</a>
     <a href="#setup">setup</a>
     <a href="https://github.com/Project-Enclave/Enclave-Messenger" target="_blank">github</a>
-    <button class="theme-btn" data-theme-toggle aria-label="toggle theme">◐</button>
+    <button class="theme-btn" data-theme-toggle aria-label="toggle theme">&#9680;</button>
   </nav>
 </header>
 <main>
   <div class="hero">
-    <h1>a p2p messenger that works<br/>even when the <em>internet</em> doesn’t.</h1>
-    <p>and fallbacks to <em>whatever</em> you happen to have — LAN, bluetooth, LoRa radio, SMS.</p>
+    <h1>a p2p messenger that works<br/>even when the <em>internet</em> doesn&#8217;t.</h1>
+    <p>and fallbacks to <em>whatever</em> you happen to have &#8212; LAN, bluetooth, LoRa radio, SMS.</p>
     <p>no accounts. no central servers. your identity is a keypair that lives on your device.</p>
-    <p class="small-note">// part of <a href="https://projectenclave.dev">project enclave</a> · early development · gpl-3.0</p>
+    <p class="small-note">// part of <a href="https://projectenclave.dev">project enclave</a> &middot; early development &middot; gpl-3.0</p>
     <div class="btn-row">
       <a class="btn btn-main" href="#setup">run it</a>
       <a class="btn btn-ghost" href="#how">how it works</a>
-      <a class="btn btn-ghost" href="https://github.com/Project-Enclave/Enclave-Messenger" target="_blank">github →</a>
+      <a class="btn btn-ghost" href="https://github.com/Project-Enclave/Enclave-Messenger" target="_blank">github &rarr;</a>
     </div>
   </div>
   <hr />
   <section id="what">
     <h2>what is this</h2>
     <p class="section-sub">// skip if you want to</p>
-    <div class="mission-box"><p>enclave messenger is the first piece of <a href="https://github.com/Project-Enclave">project enclave</a> — started because i live in Manipur, India, where internet shutdowns are real. when they happen, whatsapp, upi, telegram — all of it dies. they all depend on central servers that suddenly can’t be reached.</p></div>
-    <div class="mission-box"><p>that’s a stupid design. so i’m trying to build something different — a messenger that finds peers directly over whatever medium is available. internet, LAN, bluetooth, LoRa radio. whatever works.</p></div>
-    <div class="mission-box"><p>it’s not finished. it’s a hobby project. but i genuinely care about this one.</p></div>
+    <div class="mission-box"><p>enclave messenger is the first piece of <a href="https://github.com/Project-Enclave">project enclave</a> &#8212; started because i live in Manipur, India, where internet shutdowns are real. when they happen, whatsapp, upi, telegram &#8212; all of it dies. they all depend on central servers that suddenly can&#8217;t be reached.</p></div>
+    <div class="mission-box"><p>that&#8217;s a stupid design. so i&#8217;m trying to build something different &#8212; a messenger that finds peers directly over whatever medium is available. internet, LAN, bluetooth, LoRa radio. whatever works.</p></div>
+    <div class="mission-box"><p>it&#8217;s not finished. it&#8217;s a hobby project. but i genuinely care about this one.</p></div>
   </section>
   <hr />
   <section id="how">
     <h2>how it works (roughly)</h2>
     <p class="section-sub">// the architecture in a tree</p>
-    <pre>transport layer
-  ├── internet      → raw DHT (kademlia-based, no central tracker)
-  ├── local network → nmap-style peer discovery
-  ├── sms           → via local or cloud sms api
-  ├── bluetooth     → arduino / esp32 / device api
-  └── lora          → arduino / esp32 (long range, low bandwidth)
+    <div class="code-wrap"><pre>transport layer
+  &#9500;&#9472;&#9472; internet      &#8594; raw DHT (kademlia-based, no central tracker)
+  &#9500;&#9472;&#9472; local network &#8594; nmap-style peer discovery
+  &#9500;&#9472;&#9472; sms           &#8594; via local or cloud sms api
+  &#9500;&#9472;&#9472; bluetooth     &#8594; arduino / esp32 / device api
+  &#9492;&#9472;&#9472; lora          &#8594; arduino / esp32 (long range, low bandwidth)
 
 identity layer
-  ├── ed25519 keypair  → who you are (signing)
-  └── x25519 prekeys  → how sessions start (key exchange)
+  &#9500;&#9472;&#9472; ed25519 keypair  &#8594; who you are (signing)
+  &#9492;&#9472;&#9472; x25519 prekeys  &#8594; how sessions start (key exchange)
 
 crypto layer
-  └── noise protocol + double ratchet → e2e encryption per conversation
+  &#9492;&#9472;&#9472; noise protocol + double ratchet &#8594; e2e encryption per conversation
 
 ui
-  ├── flutter → desktop + android (main targets)
-  └── python bridge → web ui</pre>
+  &#9500;&#9472;&#9472; flutter &#8594; desktop + android (main targets)
+  &#9492;&#9472;&#9472; python bridge &#8594; web ui</pre></div>
     <p>no accounts. no servers. user id is derived from your public key. nobody can take it from you.</p>
   </section>
   <hr />
@@ -177,19 +189,19 @@ ui
     <div class="grid">
       <div class="card"><h3>ed25519</h3><p>your identity keypair. used for signing. who you are on the network.</p></div>
       <div class="card"><h3>x25519 prekeys</h3><p>used to establish sessions. lets two devices agree on a shared secret without ever sending it.</p></div>
-      <div class="card"><h3>noise + double ratchet</h3><p>end-to-end encryption per conversation. forward secrecy. inspired by signal’s protocol.</p></div>
+      <div class="card"><h3>noise + double ratchet</h3><p>end-to-end encryption per conversation. forward secrecy. inspired by signal&#8217;s protocol.</p></div>
     </div>
   </section>
   <hr />
   <section id="stack">
     <h2>tech stack</h2>
-    <p class="section-sub">// it’s a mess but it’s my mess</p>
+    <p class="section-sub">// it&#8217;s a mess but it&#8217;s my mess</p>
     <div class="tech-row">
-      <span class="tech-tag">python — backend / core</span>
-      <span class="tech-tag">python — cli / tui</span>
-      <span class="tech-tag">dart + flutter — desktop + mobile</span>
-      <span class="tech-tag">html / css / js — web ui</span>
-      <span class="tech-tag">c++ — arduino / esp32</span>
+      <span class="tech-tag">python &#8212; backend / core</span>
+      <span class="tech-tag">python &#8212; cli / tui</span>
+      <span class="tech-tag">dart + flutter &#8212; desktop + mobile</span>
+      <span class="tech-tag">html / css / js &#8212; web ui</span>
+      <span class="tech-tag">c++ &#8212; arduino / esp32</span>
     </div>
   </section>
   <hr />
@@ -197,21 +209,21 @@ ui
     <h2>running it</h2>
     <p class="section-sub">// nothing to run yet. check back later.</p>
     <p>one-liner (linux / macOS)</p>
-    <pre>bash &lt;(curl -sL https://raw.githubusercontent.com/Project-Enclave/setup/main/messenger.sh)</pre>
+    <div class="code-wrap"><pre>bash &lt;(curl -sL https://raw.githubusercontent.com/Project-Enclave/setup/main/messenger.sh)</pre></div>
     <p>or manually</p>
-    <pre>git clone https://github.com/Project-Enclave/Enclave-Messenger
+    <div class="code-wrap"><pre>git clone https://github.com/Project-Enclave/Enclave-Messenger
 cd Enclave-Messenger
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python web.py</pre>
+python web.py</pre></div>
     <p>windows</p>
-    <pre>git clone https://github.com/Project-Enclave/Enclave-Messenger
+    <div class="code-wrap"><pre>git clone https://github.com/Project-Enclave/Enclave-Messenger
 cd Enclave-Messenger
 py -3 -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
-python web.py</pre>
+python web.py</pre></div>
     <p class="small-note">// install scripts live in <a href="https://github.com/Project-Enclave/setup" target="_blank">Project-Enclave/setup</a></p>
   </section>
   <hr />
@@ -220,16 +232,16 @@ python web.py</pre>
     <p class="section-sub">// people who actually helped</p>
     <ul class="ack-list">
       <li>classmates at jj school montessori and army public school khadakwasla</li>
-      <li>github — for the student pack</li>
-      <li>saksham — support, testing, debugging, UI/UX, and a lot more</li>
-      <li>signal — for open-sourcing their encryption methods</li>
-      <li><a href="https://silence.im/" target="_blank">silence</a> — for the original idea</li>
+      <li>github &#8212; for the student pack</li>
+      <li>saksham &#8212; support, testing, debugging, UI/UX, and a lot more</li>
+      <li>signal &#8212; for open-sourcing their encryption methods</li>
+      <li><a href="https://silence.im/" target="_blank">silence</a> &#8212; for the original idea</li>
     </ul>
   </section>
   <hr />
 </main>
 <footer>
-  part of <a href="https://projectenclave.dev">project enclave</a> &nbsp;·&nbsp; <span>distributed by intent</span><br/>
+  part of <a href="https://projectenclave.dev">project enclave</a> &nbsp;&middot;&nbsp; <span>distributed by intent</span><br/>
   also on <a href="https://stardance.hackclub.com" target="_blank">stardance</a> by <a href="https://hackclub.com" target="_blank">hackclub</a>
 </footer>
 <script>
@@ -241,6 +253,28 @@ python web.py</pre>
     if (btn) btn.addEventListener('click', () => {
       const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
+    });
+
+    // copy buttons
+    document.querySelectorAll('pre').forEach(pre => {
+      const wrap = pre.closest('.code-wrap') || (() => {
+        const w = document.createElement('div');
+        w.className = 'code-wrap';
+        pre.parentNode.insertBefore(w, pre);
+        w.appendChild(pre);
+        return w;
+      })();
+      const copy = document.createElement('button');
+      copy.className = 'copy-btn';
+      copy.textContent = 'copy';
+      copy.addEventListener('click', () => {
+        navigator.clipboard.writeText(pre.innerText).then(() => {
+          copy.textContent = 'copied!';
+          copy.classList.add('copied');
+          setTimeout(() => { copy.textContent = 'copy'; copy.classList.remove('copied'); }, 2000);
+        });
+      });
+      wrap.appendChild(copy);
     });
   })();
 </script>
