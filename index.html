@@ -103,7 +103,7 @@
 <main>
   <div class="hero">
     <h1>a p2p messenger that works<br/>even when the <em>internet</em> doesn&#8217;t.</h1>
-    <p>and fallbacks to <em>whatever</em> you happen to have &#8212; LAN, bluetooth, LoRa radio, SMS.</p>
+    <p>and uses <em>whatever</em> you happen to have &#8212; LAN, bluetooth, LoRa radio, SMS.</p>
     <p>no accounts. no central servers. your identity is a keypair that lives on your device.</p>
     <p class="small-note">// part of <a href="https://projectenclave.dev">project enclave</a> &middot; early development &middot; gpl-3.0</p>
     <div class="btn-row">
@@ -116,8 +116,8 @@
   <section id="what">
     <h2>what is this</h2>
     <p class="section-sub">// skip if you want to</p>
-    <div class="mission-box"><p>enclave messenger is the first piece of <a href="https://github.com/Project-Enclave">project enclave</a> &#8212; started because i live in Manipur, India, where internet shutdowns are real. when they happen, whatsapp, upi, telegram &#8212; all of it dies. they all depend on central servers that suddenly can&#8217;t be reached.</p></div>
-    <div class="mission-box"><p>that&#8217;s a stupid design. so i&#8217;m trying to build something different &#8212; a messenger that finds peers directly over whatever medium is available. internet, LAN, bluetooth, LoRa radio. whatever works.</p></div>
+    <div class="mission-box"><p>enclave messenger is the first piece of <a href="https://github.com/Project-Enclave">project enclave</a> &#8212; started because i live in Manipur, India, where internet shutdowns are real. when they happen, whatsapp, upi, telegram &#8212; all of it dies. they all depend on central servers that suddenly can't be reached.</p></div>
+    <div class="mission-box"><p>that's a stupid design. so i'm trying to build something different &#8212; a messenger that finds peers directly over whatever medium is available. internet, LAN, bluetooth, LoRa radio. whatever works.</p></div>
     <div class="mission-box"><p>it&#8217;s not finished. it&#8217;s a hobby project. but i genuinely care about this one.</p></div>
   </section>
   <hr />
@@ -148,9 +148,9 @@ ui
     <h2>current status</h2>
     <p class="section-sub">// early. like, really early.</p>
     <div class="grid">
-      <div class="card"><h3>done</h3><p><span class="dot dot-done"></span>identity system</p><p><span class="dot dot-done"></span>LAN discovery</p><p><span class="dot dot-done"></span>message format + delivery</p><p><span class="dot dot-done"></span>bluetooth transport</p><p><span class="dot dot-done"></span>plugin system</p></div>
+      <div class="card"><h3>done</h3><p><span class="dot dot-done"></span>identity system</p><p><span class="dot dot-done"></span>LAN discovery</p><p><span class="dot dot-done"></span>message format + delivery</p><p><span class="dot dot-done"></span>bluetooth transport</p><p><span class="dot dot-done"></span>plugin system</p><p><span class="dot dot-done"></span>SMS transport</p></div>
       <div class="card"><h3>in progress</h3><p><span class="dot dot-wip"></span>DHT node</p><p><span class="dot dot-wip"></span>double ratchet sessions</p><p><span class="dot dot-wip"></span>flutter ui</p><p><span class="dot dot-wip"></span>LoRa transport</p></div>
-      <div class="card"><h3>planned</h3><p><span class="dot dot-plan"></span>SMS transport</p><p><span class="dot dot-plan"></span>mobile app</p><p><span class="dot dot-plan"></span>proper docs</p></div>
+      <div class="card"><h3>planned</h3><p><span class="dot dot-plan"></span>mobile app</p><p><span class="dot dot-plan"></span>proper docs</p></div>
     </div>
   </section>
   <hr />
@@ -191,8 +191,8 @@ ui
   <hr />
   <section id="setup">
     <h2>running it</h2>
-    <p class="section-sub">// nothing to run yet. check back later.</p>
-    <p>one-liner (linux / macOS / fish)</p>
+    <p class="section-sub">// early beta available.</p>
+    <p>one-liner (linux / macOS / fish / bash)</p>
     <div class="code-wrap"><pre>curl -sL https://raw.githubusercontent.com/Project-Enclave/setup/main/messenger.sh -o /tmp/enclave-setup.sh && bash /tmp/enclave-setup.sh</pre></div>
     <p>or manually</p>
     <div class="code-wrap"><pre>git clone https://github.com/Project-Enclave/Enclave-Messenger
@@ -218,10 +218,11 @@ python web.py</pre></div>
     <p class="section-sub">// people who actually helped</p>
     <ul class="ack-list">
       <li>classmates at jj school montessori and army public school khadakwasla</li>
-      <li>github &#8212; for the student pack</li>
-      <li>saksham &#8212; support, testing, debugging, UI/UX, and a lot more</li>
-      <li>signal &#8212; for open-sourcing their encryption methods</li>
-      <li><a href="https://silence.im/" target="_blank">silence</a> &#8212; for the original idea</li>
+      <li>github - for the student pack</li>
+      <li>saksham - support, testing, debugging, UI/UX, and a lot more</li>
+      <li>signal - for open-sourcing their encryption methods</li>
+      <li><a href="https://silence.im/" target="_blank">silence</a> - for sms</li>
+      <li>government of manipur - for forcing me to use alternatives like silence and making me make this</li>
     </ul>
   </section>
   <hr />
