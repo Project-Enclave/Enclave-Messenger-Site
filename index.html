@@ -69,29 +69,13 @@
     .t-table td:first-child { color: var(--text); font-weight: 500; }
     .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
     .dot-done { background: #4ade80; } .dot-wip { background: #e09955; } .dot-plan { background: #888; }
-
-    /* code blocks */
     .code-wrap { position: relative; margin: 0.75rem 0 1.25rem; }
-    pre {
-      background: var(--surface); border: 1px solid var(--border);
-      border-left: 4px solid var(--coral); border-radius: 10px;
-      padding: 1.1rem 1.25rem; padding-right: 3.5rem;
-      overflow-x: auto; font-family: 'Courier New', monospace;
-      font-size: 0.85rem; color: var(--text); line-height: 1.7; margin: 0;
-    }
+    pre { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--coral); border-radius: 10px; padding: 1.1rem 1.25rem; padding-right: 3.5rem; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 0.85rem; color: var(--text); line-height: 1.7; margin: 0; }
     code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 1px 6px; font-size: 0.85rem; font-family: 'Courier New', monospace; color: var(--coral); }
     pre code { background: none; border: none; padding: 0; color: inherit; }
-    .copy-btn {
-      position: absolute; top: 0.55rem; right: 0.55rem;
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: 6px; padding: 0.25rem 0.55rem;
-      font-size: 0.75rem; font-family: var(--font);
-      color: var(--faint); cursor: pointer;
-      transition: color 0.15s, border-color 0.15s;
-    }
+    .copy-btn { position: absolute; top: 0.55rem; right: 0.55rem; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.25rem 0.55rem; font-size: 0.75rem; font-family: var(--font); color: var(--faint); cursor: pointer; transition: color 0.15s, border-color 0.15s; }
     .copy-btn:hover { color: var(--primary); border-color: var(--primary); }
     .copy-btn.copied { color: #4ade80; border-color: #4ade80; }
-
     .ack-list { list-style: none; padding: 0; display: grid; gap: 0.6rem; margin-top: 0.75rem; }
     .ack-list li::before { content: "\2726 "; color: var(--coral); }
     .ack-list li { color: var(--muted); font-size: 0.95rem; }
@@ -208,8 +192,8 @@ ui
   <section id="setup">
     <h2>running it</h2>
     <p class="section-sub">// nothing to run yet. check back later.</p>
-    <p>one-liner (linux / macOS)</p>
-    <div class="code-wrap"><pre>bash &lt;(curl -sL https://raw.githubusercontent.com/Project-Enclave/setup/main/messenger.sh)</pre></div>
+    <p>one-liner (linux / macOS / fish)</p>
+    <div class="code-wrap"><pre>curl -sL https://raw.githubusercontent.com/Project-Enclave/setup/main/messenger.sh | bash</pre></div>
     <p>or manually</p>
     <div class="code-wrap"><pre>git clone https://github.com/Project-Enclave/Enclave-Messenger
 cd Enclave-Messenger
@@ -254,8 +238,6 @@ python web.py</pre></div>
       const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
     });
-
-    // copy buttons
     document.querySelectorAll('pre').forEach(pre => {
       const wrap = pre.closest('.code-wrap') || (() => {
         const w = document.createElement('div');
