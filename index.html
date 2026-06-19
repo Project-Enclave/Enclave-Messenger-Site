@@ -1,22 +1,195 @@
 <!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enclave Messenger</title>
+  <meta name="description" content="a p2p messenger that works even when the internet doesn&#39;t">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0a0a0a; --text:#e8e8e8; --muted:#888; --green:#4ade80; --border:#1a1a1a; --font:'JetBrains Mono',monospace; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.6;padding:1rem}
+    a{color:var(--green);text-decoration:none}
+    a:hover{text-decoration:underline}
+    h1{font-size:1.5rem;margin-bottom:0.5rem}
+    h2{font-size:1.25rem;margin:1.5rem 0 0.75rem;color:var(--muted)}
+    h3{font-size:1rem;margin:1rem 0 0.5rem;color:var(--muted)}
+    p{margin-bottom:0.75rem;max-width:600px;color:var(--muted)}
+    strong{color:var(--text)}
+    ul,ol{margin-bottom:0.75rem;padding-left:1.25rem;color:var(--muted)}
+    li{margin-bottom:0.25rem}
+    code{background:#111;padding:2px 6px;border-radius:3px;font-size:13px;color:var(--green)}
+    pre{background:#111;padding:1rem;border-radius:5px;overflow-x:auto;margin:1rem 0;border:1px solid var(--border)}
+    pre code{background:none;padding:0;color:var(--text)}
+    .container{max-width:700px;margin-inline:auto;padding-inline:1rem}
+    nav{padding:1rem 0;margin-bottom:2rem;border-bottom:1px solid var(--border)}
+    nav a{margin-right:1.5rem;color:var(--muted);font-size:13px}
+    nav a:hover{color:var(--green)}
+    section{margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+    section:last-of-type{border-bottom:none}
+    .badge{display:inline-block;font-size:11px;color:var(--green);background:#2d5a40;padding:3px 8px;border-radius:4px;margin-bottom:0.75rem}
+    .status{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+    .status-dot{width:8px;height:8px;border-radius:50%}
+    .status-dot.done{background:var(--green)}
+    .status-dot.wip{background:#e09955}
+    .status-dot.todo{background:#666}
+    .comment{color:var(--muted);font-style:italic}
+    .hr{height:1px;background:var(--border);margin:1.5rem 0}
+    .table{width:100%;font-size:13px;border-collapse:collapse}
+    .table td,.table th{padding:8px;border-bottom:1px solid var(--border);text-align:left}
+    .table th{color:var(--muted);font-size:12px}
+    .table td:first-child{color:var(--text)}
+    footer{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);color:var(--muted);font-size:12px}
+    footer a{color:var(--muted)}
+    footer a:hover{color:var(--green)}
+    @media(max-width:600px){body{padding:0.75rem}h1{font-size:1.25rem}p{max-width:none}nav a{margin-right:1rem}}
+  </style>
+</head>
+<body>
+<div class="container">
+<nav>
+  <a href="#about">about</a>
+  <a href="#how">how it works</a>
+  <a href="#transports">transports</a>
+  <a href="#crypto">crypto</a>
+  <a href="#stack">stack</a>
+  <a href="#setup">setup</a>
+  <a href="https://github.com/Project-Enclave/Enclave-Messenger" target="_blank">github →</a>
+</nav>
 
-<html>
+<section id="about">
+  <span class="badge">early development · gpl-3.0</span>
+  <h1>a p2p messenger that works even when the <strong>internet</strong> doesn&#39;t</h1>
+  <p>and fallbacks to <em>whatever</em> you happen to have.</p>
+  <div class="hr"></div>
+  <h2>what is this</h2>
+  <p class="comment">(skip this part if you want to)</p>
+  <p>enclave messenger is the first piece of <a href="https://github.com/Project-Enclave">project enclave</a> — a hobby project started because i live in Manipur, India, where internet shutdowns are real. whatsapp, upi, telegram all go down when central servers can&#39;t be reached.</p>
+  <p>that&#39;s stupid design. trying something different.</p>
+  <p>goal: a messenger that doesn&#39;t die when one server goes offline. finds peers directly — internet, LAN, bluetooth, lora radio. whatever works.</p>
+</section>
 
-  <head>
+<section id="how">
+  <h2>how it works (roughly)</h2>
+<pre>transport layer
+  ├── internet      → raw DHT (kademlia-based, no central tracker)
+  ├── local network → nmap-style peer discovery
+  ├── sms           → via local or cloud sms api
+  ├── bluetooth     → arduino / esp32 / device api
+  └── lora          → arduino / esp32 (long range, low bandwidth)
 
-    <title>Enclave Messenger</title>
+identity layer
+  ├── ed25519 keypair  → who you are (signing)
+  └── x25519 prekeys  → session start (key exchange)
 
-  </head>
+crypto layer
+  └── noise protocol + double ratchet → e2e encryption
 
-  <body>
+ui
+  ├── flutter → desktop + android
+  └── python bridge → web ui</pre>
+  <p>no accounts. no servers. identity = keypair on your device. user id from public key. nobody can take it.</p>
+</section>
 
-    <h1>Enclave Messenger</h1>
-    <br>
-    <p>Work in progress. Come back soon.</p>
-    <br>
-    <small>by Project Enclave</small>
+<section id="status">
+  <h2>current status</h2>
+  <p class="comment">&gt; early. like, really early.</p>
+  <ul>
+    <li><span class="status"><span class="status-dot done"></span> identity system</span></li>
+    <li><span class="status"><span class="status-dot wip"></span> DHT node</span></li>
+    <li><span class="status"><span class="status-dot done"></span> LAN discovery</span></li>
+    <li><span class="status"><span class="status-dot done"></span> message format + delivery</span></li>
+    <li><span class="status"><span class="status-dot wip"></span> double ratchet sessions</span></li>
+    <li><span class="status"><span class="status-dot wip"></span> flutter ui</span></li>
+    <li><span class="status"><span class="status-dot done"></span> bluetooth transport</span></li>
+    <li><span class="status"><span class="status-dot wip"></span> lora transport</span></li>
+    <li><span class="status"><span class="status-dot done"></span> plugin system</span></li>
+  </ul>
+</section>
 
-  </body>
+<section id="transports">
+  <h2>transports</h2>
+  <table class="table">
+    <tr><th>transport</th><th>what</th><th>status</th></tr>
+    <tr><td>internet</td><td>raw DHT</td><td><span class="status"><span class="status-dot wip"></span> in progress</span></td></tr>
+    <tr><td>local network</td><td>nmap-style discovery</td><td><span class="status"><span class="status-dot done"></span> done</span></td></tr>
+    <tr><td>sms</td><td>local/cloud api</td><td><span class="status"><span class="status-dot todo"></span> planned</span></td></tr>
+    <tr><td>bluetooth</td><td>arduino/esp32</td><td><span class="status"><span class="status-dot done"></span> done</span></td></tr>
+    <tr><td>lora</td><td>arduino/esp32</td><td><span class="status"><span class="status-dot wip"></span> planned</span></td></tr>
+  </table>
+</section>
 
+<section id="crypto">
+  <h2>crypto</h2>
+  <ul>
+    <li><strong>ed25519</strong> → identity (signing)</li>
+    <li><strong>x25519</strong> → session start</li>
+    <li><strong>noise + double ratchet</strong> → e2e encryption</li>
+  </ul>
+</section>
+
+<section id="stack">
+  <h2>tech stack</h2>
+  <table class="table">
+    <tr><th>layer</th><th>tech</th></tr>
+    <tr><td>backend/core</td><td><code>python</code></td></tr>
+    <tr><td>cli/tui</td><td><code>python</code></td></tr>
+    <tr><td>desktop/mobile</td><td><code>dart/flutter</code></td></tr>
+    <tr><td>web ui</td><td><code>html/css/js</code></td></tr>
+    <tr><td>embedded</td><td><code>c++ (arduino/esp32)</code></td></tr>
+  </table>
+</section>
+
+<section id="setup">
+  <h2>running it</h2>
+  <p class="comment">&gt; nothing to run yet. check back later.</p>
+  <h3>linux / macOS</h3>
+<pre>git clone https://github.com/Project-Enclave/Enclave-Messenger
+cd Enclave-Messenger
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python web.py</pre>
+  <h3>windows</h3>
+<pre>git clone https://github.com/Project-Enclave/Enclave-Messenger
+cd Enclave-Messenger
+py -3 -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+python web.py</pre>
+</section>
+
+<section id="contributing">
+  <h2>contributing</h2>
+  <p>small project. if you know me and want to help, message me. random prs won&#39;t get reviewed quickly.</p>
+</section>
+
+<section id="acknowledgements">
+  <h2>acknowledgements</h2>
+  <ul>
+    <li>jj school montessori + army public school khadakwasla classmates</li>
+    <li>github — student pack</li>
+    <li>saksham — support, testing, debugging, UI/UX</li>
+  </ul>
+</section>
+
+<section id="license">
+  <h2>license</h2>
+  <p><a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">gnu gpl v3</a></p>
+</section>
+
+<section id="etc">
+  <h2>etc</h2>
+  <p>also on <a href="https://stardance.hackclub.com" target="_blank">stardance</a> by <a href="https://hackclub.com" target="_blank">hackclub</a></p>
+</section>
+
+<footer>
+  <p>part of <a href="https://github.com/Project-Enclave" target="_blank">project enclave</a> · distributed by intent</p>
+</footer>
+
+</div>
+</body>
 </html>
-
