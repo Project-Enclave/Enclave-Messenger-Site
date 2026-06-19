@@ -193,13 +193,14 @@ ui
     <h2>running it</h2>
     <p class="section-sub">// nothing to run yet. check back later.</p>
     <p>one-liner (linux / macOS / fish)</p>
-    <div class="code-wrap"><pre>curl -sL https://raw.githubusercontent.com/Project-Enclave/setup/main/messenger.sh | bash</pre></div>
+    <div class="code-wrap"><pre>curl -sL https://raw.githubusercontent.com/Project-Enclave/setup/main/messenger.sh -o /tmp/enclave-setup.sh && bash /tmp/enclave-setup.sh</pre></div>
     <p>or manually</p>
     <div class="code-wrap"><pre>git clone https://github.com/Project-Enclave/Enclave-Messenger
 cd Enclave-Messenger
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+python set.py
 python web.py</pre></div>
     <p>windows</p>
     <div class="code-wrap"><pre>git clone https://github.com/Project-Enclave/Enclave-Messenger
@@ -207,6 +208,7 @@ cd Enclave-Messenger
 py -3 -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
+python set.py
 python web.py</pre></div>
     <p class="small-note">// install scripts live in <a href="https://github.com/Project-Enclave/setup" target="_blank">Project-Enclave/setup</a></p>
   </section>
