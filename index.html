@@ -196,6 +196,7 @@ ui
     <h2>running it</h2>
     <p class="section-sub">// early beta available.</p>
     <p>one-liner (linux / macOS / fish / bash)</p>
+    <p class="section-sub">// this is the most tested and preferred method</p>
     <div class="code-wrap"><pre>curl -sL https://raw.githubusercontent.com/Project-Enclave/setup/main/messenger.sh -o /tmp/enclave-setup.sh && bash /tmp/enclave-setup.sh</pre></div>
     <p>or manually</p>
     <div class="code-wrap"><pre>git clone https://github.com/Project-Enclave/Enclave-Messenger
@@ -204,17 +205,23 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python set.py
-python web.py</pre></div>
-    <p>windows</p>
+python tui.py</pre></div>
+    <p> one-liner for windows (powershell)</p>
+    <div class="code-wrap"><pre>irm https://raw.githubusercontent.com/Project-Enclave/setup/main/messenger.ps1 -OutFile $env:TEMPenclave-setup.ps1; & $env:TEMPenclave-setup.ps1</pre></div>
+    <p>one-liner for windows (command prompt)</p>
+    <div class="code-wrap"><pre>curl -sL https://raw.githubusercontent.com/Project-Enclave/setup/main/messenger.bat -o %TEMP%enclave-setup.bat
+%TEMP%enclave-setup.bat</pre></div>
+    <p>or manually</p>
     <div class="code-wrap"><pre>git clone https://github.com/Project-Enclave/Enclave-Messenger
 cd Enclave-Messenger
 py -3 -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 python set.py
-python web.py</pre></div>
-    <p>prefer a terminal over a browser? there&#8217;s a vim-style tui too &#8212; same setup, then:</p>
-    <div class="code-wrap"><pre>python3 tui.py</pre></div>
+python tui.py</pre></div>
+    <p class="section-sub">// umm, so i have NOT tested the windows stuff, because i dont have a windows pc/laptop...</p>
+    <p>prefer a browser over a terminal? same setup, then:</p>
+    <div class="code-wrap"><pre>python3 web.py</pre></div>
     <p class="small-note">// install scripts live in <a href="https://github.com/Project-Enclave/setup" target="_blank">Project-Enclave/setup</a></p>
   </section>
   <hr />
@@ -222,8 +229,8 @@ python web.py</pre></div>
     <h2>acknowledgements</h2>
     <p class="section-sub">// people who actually helped</p>
     <ul class="ack-list">
-      <li>classmates at jj school montessori and army public school khadakwasla</li>
-      <li>github - for the student pack</li>
+      <li>Tarra/River/Xander - for helping me in general. maybe i wouldnt be here if it wasnt for xem</li>
+      <li>stardance/hackclub - for helping me do this and motivating me ig </li>
       <li>saksham - support, testing, debugging, UI/UX, and a lot more</li>
       <li>signal - for open-sourcing their encryption methods</li>
       <li><a href="https://silence.im/" target="_blank">silence</a> - for sms</li>
